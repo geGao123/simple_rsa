@@ -4,7 +4,7 @@ import SwiftyRSA
 
 public class SwiftSimpleRsaPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "simple_rsa", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "juanito21.com/simple_rsa", binaryMessenger: registrar.messenger())
     let instance = SwiftSimpleRsaPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
