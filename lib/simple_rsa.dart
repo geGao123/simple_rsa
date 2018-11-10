@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 const MethodChannel _channel =
-    const MethodChannel('juanito21.com/simple_rsa');
+    const MethodChannel('simple_rsa');
 
 Future<String> encryptString(String txt, String publicKey) async {
   try {
