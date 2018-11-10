@@ -41,7 +41,7 @@ class SimpleRsaPlugin: MethodCallHandler {
                 if (text != null && publicKey != null) {
                     try {
                         val encoded = encryptData(text, publicKey)
-                        result.success(encoded)
+                        result.success(encoded?.replace("\n", ""))
                     } catch (e: Exception) {
                         e.printStackTrace()
                         result.error("UNAVAILABLE", "Encrypt failure.", null)
