@@ -16,7 +16,7 @@ import javax.crypto.IllegalBlockSizeException
 import javax.crypto.NoSuchPaddingException
 
 
-class SimpleRsaPlugin() : MethodCallHandler {
+class SimpleRsaPlugin: MethodCallHandler {
 
 //    private var mRegistrar: Registrar? = registrar
 
@@ -36,8 +36,8 @@ class SimpleRsaPlugin() : MethodCallHandler {
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
             "encrypt" -> {
-                val text = call.argument<String>("txt")
-                val publicKey = call.argument<String>("publicKey")?.replace("^(-----.+-----)|(\\s)".toRegex(), "")
+                val text = call.argument("txt")
+                val publicKey = call.argument("publicKey")?.replace("^(-----.+-----)|(\\s)".toRegex(), "")
                 if (text != null && publicKey != null) {
                     try {
                         val encoded = encryptData(text, publicKey)
@@ -50,8 +50,8 @@ class SimpleRsaPlugin() : MethodCallHandler {
                 result.error("NULL INPUT STRING", "Encrypt failure.", null)
             }
             "decrypt" -> {
-                val text = call.argument<String>("txt")
-                val privateKey = call.argument<String>("privateKey")?.replace("^(-----.+-----)|(\\s)".toRegex(), "")
+                val text = call.argument("txt")
+                val privateKey = call.argument("privateKey")?.replace("^(-----.+-----)|(\\s)".toRegex(), "")
                 if (text != null && privateKey != null) {
                     try {
                         val d = Base64.decode(text, Base64.DEFAULT)
