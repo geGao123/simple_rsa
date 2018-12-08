@@ -2,7 +2,7 @@
 
 Flutter plugin to encrypt and decrypt (RSA/ECB/PCSK1) string with a public and a private key 
 
-Support only ANDROID (for now)
+Support only ANDROID and IOS
 
 ## Installation
 
